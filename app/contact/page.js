@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { Mail, MapPin, Phone, Send } from "lucide-react"
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -28,11 +29,37 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
-    setTimeout(() => {
+    
+    // Format current date and time for the email template
+    const now = new Date()
+    const formattedTime = now.toLocaleString('en-US', { 
+      dateStyle: 'medium', 
+      timeStyle: 'short' 
+    })
+  
+    // Prepare data to send via EmailJS
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      phone: formData.phone,
+      company: formData.company,
+      service: formData.service || "Not specified",
+      time: formattedTime
+    }
+  
+    // Send email using EmailJS
+    emailjs.send(
+      "service_f1oy4hd",
+      "template_wx40fzk",
+      templateParams,
+      "sPRSvqX1oUVKYnD2M",
+    ).then((result) => {
+      console.log("Email sent successfully:", result.text)
       setIsSubmitting(false)
       setSubmitSuccess(true)
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -41,12 +68,17 @@ export default function ContactPage() {
         message: "",
         service: "",
       })
-
+  
       // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitSuccess(false)
       }, 5000)
-    }, 1500)
+    }).catch((error) => {
+      console.error("Failed to send email:", error.text)
+      setIsSubmitting(false)
+      // Handle error
+      alert("Failed to send message. Please try again later.")
+    })
   }
 
   return (
@@ -82,7 +114,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Our Location</h3>
-                    <p className="text-gray-400">123 AI Boulevard, Tech District, San Francisco, CA 94105</p>
+                    <p className="text-gray-400">200 East 6th Street, Suite 310, Austin, TX 78701</p>
                   </div>
                 </div>
 
@@ -93,10 +125,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Email Us</h3>
                     <a
-                      href="mailto:info@newberryai.com"
+                      href="mailto:raminder.sandhu@holbox.ai"
                       className="text-gray-400 hover:text-violet-400 transition-colors"
                     >
-                      info@newberryai.com
+                       raminder.sandhu@holbox.ai
                     </a>
                   </div>
                 </div>
@@ -108,20 +140,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Call Us</h3>
                     <a href="tel:+15551234567" className="text-gray-400 hover:text-violet-400 transition-colors">
-                      +1 (555) 123-4567
+                     +1 (254) 340-3783
                     </a>
                   </div>
                 </div>
               </div>
-
-              {/* <div className="relative h-[300px] rounded-xl overflow-hidden">
-                <Image
-                  src="/placeholder.svg?height=600&width=800"
-                  alt="Office Location"
-                  fill
-                  className="object-cover"
-                />
-              </div> */}
             </div>
 
             {/* Contact Form */}

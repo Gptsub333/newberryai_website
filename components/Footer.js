@@ -129,16 +129,16 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-violet-500 mt-1 flex-shrink-0" />
-                <span className="text-gray-400">123 AI Boulevard, Tech District, San Francisco, CA 94105</span>
+                <span className="text-gray-400">200 East 6th Street, Suite 310, Austin, TX 78701</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-violet-500 flex-shrink-0" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+1 (254) 340-3783</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-violet-500 flex-shrink-0" />
-                <a href="mailto:info@newberryai.com" className="text-gray-400 hover:text-white transition-colors">
-                  info@newberryai.com
+                <a href="mailto:raminder.sandhu@holbox.ai" className="text-gray-400 hover:text-white transition-colors">
+                raminder.sandhu@holbox.ai
                 </a>
               </li>
             </ul>
