@@ -1,9 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Mail, MapPin, Phone, Send } from "lucide-react"
-import emailjs from '@emailjs/browser';
+import { useState } from "react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -13,73 +11,53 @@ export default function ContactPage() {
     company: "",
     message: "",
     service: "",
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Format current date and time for the email template
-    const now = new Date()
-    const formattedTime = now.toLocaleString('en-US', { 
-      dateStyle: 'medium', 
-      timeStyle: 'short' 
-    })
-  
-    // Prepare data to send via EmailJS
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-      phone: formData.phone,
-      company: formData.company,
-      service: formData.service || "Not specified",
-      time: formattedTime
-    }
-  
-    // Send email using EmailJS
-    emailjs.send(
-      "service_f1oy4hd",
-      "template_wx40fzk",
-      templateParams,
-      "sPRSvqX1oUVKYnD2M",
-    ).then((result) => {
-      console.log("Email sent successfully:", result.text)
-      setIsSubmitting(false)
-      setSubmitSuccess(true)
-      
-      // Reset form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formattedTime = new Date().toLocaleString("en-US", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_API_CONTACT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, time: formattedTime }),
+      });
+      if (!res.ok) throw new Error("Network response was not ok");
+
+      setSubmitSuccess(true);
       setFormData({
         name: "",
         email: "",
         phone: "",
         company: "",
-        message: "",
         service: "",
-      })
-  
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setSubmitSuccess(false)
-      }, 5000)
-    }).catch((error) => {
-      console.error("Failed to send email:", error.text)
-      setIsSubmitting(false)
-      // Handle error
-      alert("Failed to send message. Please try again later.")
-    })
-  }
+        message: "",
+      });
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (err) {
+      console.error("Submission error:", err);
+      alert("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -89,7 +67,8 @@ export default function ContactPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="heading-xl mb-6">Contact Us</h1>
             <p className="paragraph mb-8">
-              Have a question or interested in our services? Get in touch with our team and we&apos;ll be happy to help.
+              Have a question or interested in our services? Get in touch with
+              our team and we&apos;ll be happy to help.
             </p>
           </div>
         </div>
@@ -103,8 +82,10 @@ export default function ContactPage() {
             <div>
               <h2 className="heading-md mb-6">Get in Touch</h2>
               <p className="paragraph mb-8">
-                Whether you&apos;re curious about our services, looking for a demo, or ready to start a project, our team is
-                here to answer your questions and help you find the right AI solution for your business.
+                Whether you&apos;re curious about our services, looking for a
+                demo, or ready to start a project, our team is here to answer
+                your questions and help you find the right AI solution for your
+                business.
               </p>
 
               <div className="space-y-6 mb-8">
@@ -114,7 +95,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Our Location</h3>
-                    <p className="text-gray-400">200 East 6th Street, Suite 310, Austin, TX 78701</p>
+                    <p className="text-gray-400">
+                      123 West 95 Street, New York, NY 10025
+                    </p>
                   </div>
                 </div>
 
@@ -128,7 +111,7 @@ export default function ContactPage() {
                       href="mailto:raminder.sandhu@holbox.ai"
                       className="text-gray-400 hover:text-violet-400 transition-colors"
                     >
-                       raminder.sandhu@holbox.ai
+                      raminder@newberry.ai
                     </a>
                   </div>
                 </div>
@@ -139,8 +122,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Call Us</h3>
-                    <a href="tel:+15551234567" className="text-gray-400 hover:text-violet-400 transition-colors">
-                     +1 (254) 340-3783
+                    <a
+                      href="tel:+19177426510"
+                      className="text-gray-400 hover:text-violet-400 transition-colors"
+                    >
+                      +1 (917) 742-6510
                     </a>
                   </div>
                 </div>
@@ -155,14 +141,20 @@ export default function ContactPage() {
                 {submitSuccess ? (
                   <div className="bg-green-900/20 border border-green-800 text-green-400 rounded-lg p-4 mb-6">
                     <p className="font-medium">Thank you for your message!</p>
-                    <p>We&apos;ve received your inquiry and will get back to you shortly.</p>
+                    <p>
+                      We&apos;ve received your inquiry and will get back to you
+                      shortly.
+                    </p>
                   </div>
                 ) : null}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-300 mb-1"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -177,7 +169,10 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-300 mb-1"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -195,7 +190,10 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-gray-300 mb-1"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -209,7 +207,10 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium text-gray-300 mb-1"
+                      >
                         Company
                       </label>
                       <input
@@ -225,7 +226,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium text-gray-300 mb-1"
+                    >
                       Service of Interest
                     </label>
                     <select
@@ -238,15 +242,24 @@ export default function ContactPage() {
                       <option value="">Select a service</option>
                       <option value="ai-consulting">AI Consulting</option>
                       <option value="machine-learning">Machine Learning</option>
-                      <option value="natural-language-processing">Natural Language Processing</option>
+                      <option value="natural-language-processing">
+                        Natural Language Processing
+                      </option>
                       <option value="computer-vision">Computer Vision</option>
-                      <option value="predictive-analytics">Predictive Analytics</option>
-                      <option value="custom-ai-solutions">Custom AI Solutions</option>
+                      <option value="predictive-analytics">
+                        Predictive Analytics
+                      </option>
+                      <option value="custom-ai-solutions">
+                        Custom AI Solutions
+                      </option>
                     </select>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-300 mb-1"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -261,7 +274,11 @@ export default function ContactPage() {
                     ></textarea>
                   </div>
 
-                  <button type="submit" disabled={isSubmitting} className="btn-primary w-full">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full"
+                  >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">
                         <svg
@@ -305,7 +322,10 @@ export default function ContactPage() {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="heading-lg mb-6">Frequently Asked Questions</h2>
-            <p className="paragraph">Find answers to common questions about our services, process, and technology.</p>
+            <p className="paragraph">
+              Find answers to common questions about our services, process, and
+              technology.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -331,12 +351,14 @@ export default function ContactPage() {
                   "We implement robust security measures and follow industry best practices to protect your data. All our solutions are designed with privacy and security as top priorities.",
               },
               {
-                question: "Can you integrate AI solutions with our existing systems?",
+                question:
+                  "Can you integrate AI solutions with our existing systems?",
                 answer:
                   "Yes, our solutions are designed to integrate seamlessly with your existing systems and workflows, minimizing disruption and maximizing value.",
               },
               {
-                question: "What makes NewberryAI different from other AI companies?",
+                question:
+                  "What makes NewberryAI different from other AI companies?",
                 answer:
                   "Our combination of cutting-edge research, practical implementation experience, and client-focused approach sets us apart. We don't just deliver technology; we deliver solutions that create real business value.",
               },
@@ -350,5 +372,5 @@ export default function ContactPage() {
         </div>
       </section>
     </>
-  )
+  );
 }

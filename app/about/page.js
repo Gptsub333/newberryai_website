@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, Award, Clock, Target, Users } from "lucide-react"
-import CtaSection from "@/components/CtaSection"
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Award, Clock, Target, Users } from "lucide-react";
+import CtaSection from "@/components/CtaSection";
 
 export default function AboutPage() {
   return (
@@ -12,8 +12,9 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="heading-xl mb-6">About NewberryAI</h1>
             <p className="paragraph mb-8">
-              We&apos;re a team of AI experts, researchers, and engineers dedicated to developing cutting-edge artificial
-              intelligence solutions that solve real-world problems.
+              We&apos;re a team of AI experts, researchers, and engineers
+              dedicated to developing cutting-edge artificial intelligence
+              solutions that solve real-world problems.
             </p>
           </div>
         </div>
@@ -24,40 +25,57 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl shadow-violet-900/20">
-              <Image src="/images/newberry-ai.jpg" alt="NewberryAI Team" fill className="object-cover" />
+              <Image
+                src="/images/newberry-ai.jpg"
+                alt="NewberryAI Team"
+                fill
+                className="object-cover"
+              />
             </div>
             <div>
               <h2 className="heading-lg mb-6">
                 Our <span className="gradient-text">Story</span>
               </h2>
               <p className="paragraph mb-4">
-                Founded in 2018, NewberryAI began with a simple mission: to make advanced AI technology accessible and
-                beneficial for businesses of all sizes.
+                Founded in 2018, NewberryAI began with a simple mission: to make
+                advanced AI technology accessible and beneficial for businesses
+                of all sizes.
               </p>
               <p className="paragraph mb-4">
-                What started as a small team of AI researchers has grown into a diverse group of experts united by a
-                passion for innovation and a commitment to excellence.
+                What started as a small team of AI researchers has grown into a
+                diverse group of experts united by a passion for innovation and
+                a commitment to excellence.
               </p>
               <p className="paragraph mb-6">
-                Today, we&apos;re proud to be at the forefront of AI development, helping organizations across various
-                industries harness the power of artificial intelligence to drive growth and transformation.
+                Today, we&apos;re proud to be at the forefront of AI
+                development, helping organizations across various industries
+                harness the power of artificial intelligence to drive growth and
+                transformation.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mt-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-violet-500 mb-2">50+</div>
+                  <div className="text-4xl font-bold text-violet-500 mb-2">
+                    50+
+                  </div>
                   <p className="text-gray-400">AI Experts</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-violet-500 mb-2">100+</div>
+                  <div className="text-4xl font-bold text-violet-500 mb-2">
+                    100+
+                  </div>
                   <p className="text-gray-400">Projects Completed</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-violet-500 mb-2">30+</div>
+                  <div className="text-4xl font-bold text-violet-500 mb-2">
+                    30+
+                  </div>
                   <p className="text-gray-400">Global Clients</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-violet-500 mb-2">5+</div>
+                  <div className="text-4xl font-bold text-violet-500 mb-2">
+                    5+
+                  </div>
                   <p className="text-gray-400">Years of Excellence</p>
                 </div>
               </div>
@@ -76,8 +94,9 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
               <p className="text-gray-300">
-                To empower organizations with innovative AI solutions that drive meaningful business outcomes, enhance
-                human capabilities, and create a positive impact on society.
+                To empower organizations with innovative AI solutions that drive
+                meaningful business outcomes, enhance human capabilities, and
+                create a positive impact on society.
               </p>
             </div>
             <div className="card hover:bg-gray-900/80">
@@ -86,8 +105,9 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-semibold mb-4">Our Vision</h3>
               <p className="text-gray-300">
-                To be the global leader in developing ethical, accessible, and transformative AI technologies that shape
-                the future of industries and improve people&apos;s lives.
+                To be the global leader in developing ethical, accessible, and
+                transformative AI technologies that shape the future of
+                industries and improve people&apos;s lives.
               </p>
             </div>
           </div>
@@ -100,8 +120,9 @@ export default function AboutPage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="heading-lg mb-6">Our Core Values</h2>
             <p className="paragraph">
-              These principles guide everything we do at NewberryAI, from how we develop our technology to how we
-              interact with our clients and each other.
+              These principles guide everything we do at NewberryAI, from how we
+              develop our technology to how we interact with our clients and
+              each other.
             </p>
           </div>
 
@@ -112,8 +133,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Excellence</h3>
               <p className="text-gray-400">
-                We strive for excellence in everything we do, from the quality of our code to the solutions we deliver
-                to our clients.
+                We strive for excellence in everything we do, from the quality
+                of our code to the solutions we deliver to our clients.
               </p>
             </div>
             <div className="card hover:bg-gray-900/80 hover:-translate-y-1">
@@ -122,13 +143,19 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Collaboration</h3>
               <p className="text-gray-400">
-                We believe in the power of teamwork and collaboration, both within our team and with our clients and
-                partners.
+                We believe in the power of teamwork and collaboration, both
+                within our team and with our clients and partners.
               </p>
             </div>
             <div className="card hover:bg-gray-900/80 hover:-translate-y-1">
               <div className="mb-6 bg-violet-900/20 w-14 h-14 rounded-lg flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                     stroke="#8B5CF6"
@@ -136,18 +163,37 @@ export default function AboutPage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  <path d="M12 16V12" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 8H12.01" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M12 16V12"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12 8H12.01"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3">Integrity</h3>
               <p className="text-gray-400">
-                We conduct our business with the highest level of integrity, transparency, and ethical standards.
+                We conduct our business with the highest level of integrity,
+                transparency, and ethical standards.
               </p>
             </div>
             <div className="card hover:bg-gray-900/80 hover:-translate-y-1">
               <div className="mb-6 bg-violet-900/20 w-14 h-14 rounded-lg flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
                     stroke="#8B5CF6"
@@ -166,13 +212,19 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Innovation</h3>
               <p className="text-gray-400">
-                We continuously push the boundaries of what&apos;s possible with AI, embracing creativity and
-                forward-thinking.
+                We continuously push the boundaries of what&apos;s possible with
+                AI, embracing creativity and forward-thinking.
               </p>
             </div>
             <div className="card hover:bg-gray-900/80 hover:-translate-y-1">
               <div className="mb-6 bg-violet-900/20 w-14 h-14 rounded-lg flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
                     stroke="#8B5CF6"
@@ -187,20 +239,44 @@ export default function AboutPage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  <path d="M9 9H9.01" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M15 9H15.01" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M9 9H9.01"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M15 9H15.01"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3">Client Focus</h3>
               <p className="text-gray-400">
-                We put our clients at the center of everything we do, focusing on delivering solutions that address
-                their specific needs.
+                We put our clients at the center of everything we do, focusing
+                on delivering solutions that address their specific needs.
               </p>
             </div>
             <div className="card hover:bg-gray-900/80 hover:-translate-y-1">
               <div className="mb-6 bg-violet-900/20 w-14 h-14 rounded-lg flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 6H5H21" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 6H5H21"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                   <path
                     d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z"
                     stroke="#8B5CF6"
@@ -208,74 +284,28 @@ export default function AboutPage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  <path d="M10 11V17" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M14 11V17" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M10 11V17"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M14 11V17"
+                    stroke="#8B5CF6"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3">Responsibility</h3>
               <p className="text-gray-400">
-                We develop AI with a strong sense of responsibility, considering the ethical implications and societal
-                impact of our work.
+                We develop AI with a strong sense of responsibility, considering
+                the ethical implications and societal impact of our work.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="section bg-black">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-6">Meet Our Team</h2>
-            <p className="paragraph">
-              Our diverse team of experts brings together a wealth of knowledge and experience in AI, machine learning,
-              and software development.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Dr. Sarah Chen",
-                position: "Founder & CEO",
-                bio: "With a Ph.D. in AI from Stanford, Sarah has over 15 years of experience in machine learning and AI research.",
-                image: "/images/people1.jpg",
-              },
-              {
-                name: "Michael Rodriguez",
-                position: "CTO",
-                bio: "A pioneer in neural networks with extensive experience leading technology teams at major tech companies.",
-                image: "/images/people2.jpg",
-              },
-              {
-                name: "Dr. James Wilson",
-                position: "Head of Research",
-                bio: "Leading our research initiatives with a focus on developing novel AI algorithms and methodologies.",
-                image: "/images/people3.jpg",
-              },
-              {
-                name: "Emily Nakamura",
-                position: "Head of Product",
-                bio: "Translating complex AI capabilities into user-friendly products that deliver real business value.",
-                image: "/images/people1.jpg",
-              },
-            ].map((member, index) => (
-              <div key={index} className="card hover:bg-gray-900/80 hover:-translate-y-1 text-center">
-                <div className="relative h-48 w-48 mx-auto mb-6 rounded-full overflow-hidden">
-                  <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
-                </div>
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                <p className="text-violet-400 mb-3">{member.position}</p>
-                <p className="text-gray-400">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/team" className="btn-secondary">
-              View Full Team
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
           </div>
         </div>
       </section>
@@ -283,5 +313,5 @@ export default function AboutPage() {
       {/* CTA Section */}
       <CtaSection />
     </>
-  )
+  );
 }
